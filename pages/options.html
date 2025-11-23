@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BraveFlow - Configuración</title>
+  <link rel="stylesheet" href="../css/options.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🚀 BraveFlow - Configuración</h1>
+      <p>Personaliza el comportamiento de la extensión</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Auto-Pinning Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2>📌 Auto-Pinning de Tabs</h2>
+          <label class="toggle">
+            <input type="checkbox" id="autoPinEnabled">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <p class="description">
+          Automáticamente pinea tabs según reglas personalizadas
+        </p>
+
+        <div class="add-rule">
+          <select id="pinRuleType" class="select">
+            <option value="domain">Por dominio</option>
+            <option value="pattern">Por patrón de URL</option>
+            <option value="exact">URL exacta</option>
+          </select>
+          <input type="text" id="pinRuleValue" placeholder="ejemplo.com" class="input">
+          <button id="addPinRule" class="btn-primary">+ Agregar Regla</button>
+        </div>
+
+        <div id="pinRulesList" class="rules-list"></div>
+
+        <div class="examples">
+          <strong>Ejemplos:</strong>
+          <ul>
+            <li><code>gmail.com</code> - Pinea todas las tabs de Gmail</li>
+            <li><code>dashboard</code> - Pinea URLs que contengan "dashboard"</li>
+            <li><code>https://app.example.com/admin</code> - Pinea URL exacta</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Auto-Grouping Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2>📁 Agrupación Automática</h2>
+          <label class="toggle">
+            <input type="checkbox" id="autoGroupEnabled">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <p class="description">
+          Agrupa tabs automáticamente por dominio o categoría
+        </p>
+
+        <div class="add-rule">
+          <input type="text" id="groupRuleName" placeholder="Nombre del grupo" class="input">
+          <select id="groupRuleType" class="select">
+            <option value="domain">Por dominio</option>
+            <option value="pattern">Por patrón</option>
+            <option value="category">Categoría (múltiples dominios)</option>
+          </select>
+          <input type="text" id="groupRuleValue" placeholder="ejemplo.com" class="input">
+          <select id="groupRuleColor" class="select-color">
+            <option value="grey">Gris</option>
+            <option value="blue">Azul</option>
+            <option value="red">Rojo</option>
+            <option value="yellow">Amarillo</option>
+            <option value="green">Verde</option>
+            <option value="pink">Rosa</option>
+            <option value="purple">Púrpura</option>
+            <option value="cyan">Cian</option>
+            <option value="orange">Naranja</option>
+          </select>
+          <button id="addGroupRule" class="btn-primary">+ Agregar Regla</button>
+        </div>
+
+        <div id="groupRulesList" class="rules-list"></div>
+
+        <div class="examples">
+          <strong>Ejemplos:</strong>
+          <ul>
+            <li><strong>YouTube:</strong> <code>youtube.com</code> (dominio)</li>
+            <li><strong>Google Apps:</strong> <code>google.com,gmail.com,drive.google.com</code> (categoría)</li>
+            <li><strong>Dev Tools:</strong> <code>github.com,stackoverflow.com</code> (categoría)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Data Management -->
+      <section class="card">
+        <h2>💾 Gestión de Datos</h2>
+
+        <div class="data-actions">
+          <button id="exportData" class="btn-secondary">
+            📤 Exportar Todo
+          </button>
+          <button id="importData" class="btn-secondary">
+            📥 Importar
+          </button>
+          <button id="clearAllData" class="btn-danger">
+            🗑️ Borrar Todo
+          </button>
+        </div>
+
+        <input type="file" id="importFile" accept=".json" style="display: none;">
+
+        <div class="data-stats">
+          <div class="stat">
+            <span class="stat-label">Tolinks:</span>
+            <span id="statsTolinks" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Sesiones:</span>
+            <span id="statsSessions" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Clips:</span>
+            <span id="statsClips" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Reglas Pin:</span>
+            <span id="statsPinRules" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Reglas Grupo:</span>
+            <span id="statsGroupRules" class="stat-value">0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shortcuts -->
+      <section class="card">
+        <h2>⌨️ Atajos de Teclado</h2>
+
+        <div class="shortcuts">
+          <div class="shortcut">
+            <span class="shortcut-name">Guardar sesión</span>
+            <kbd>Cmd/Ctrl + Shift + S</kbd>
+          </div>
+          <div class="shortcut">
+            <span class="shortcut-name">Crear clip rápido</span>
+            <kbd>Cmd/Ctrl + Shift + C</kbd>
+          </div>
+          <div class="shortcut">
+            <span class="shortcut-name">Agrupar tabs</span>
+            <kbd>Cmd/Ctrl + Shift + G</kbd>
+          </div>
+          <div class="shortcut">
+            <span class="shortcut-name">Usar tolinks</span>
+            <kbd>Escribe "go [alias]" en la barra</kbd>
+          </div>
+        </div>
+
+        <p class="hint">
+          💡 Puedes personalizar estos atajos en <code>brave://extensions/shortcuts</code>
+        </p>
+      </section>
+
+      <!-- About -->
+      <section class="card">
+        <h2>ℹ️ Acerca de BraveFlow</h2>
+        <p>
+          <strong>Versión:</strong> 1.0.0<br>
+          <strong>Desarrollado para:</strong> Brave Browser / Chromium<br>
+          <strong>Funcionalidades:</strong> Tolinks, Auto-pinning, Agrupación automática, Plantillas de sesiones, Sistema de clips
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="../js/options.js"></script>
+</body>
+</html>

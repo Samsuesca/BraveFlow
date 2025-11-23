@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BraveFlow</title>
+  <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🚀 BraveFlow</h1>
+      <button id="settingsBtn" class="icon-btn" title="Configuración">⚙️</button>
+    </div>
+
+    <!-- Tabs de navegación -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tolinks">Tolinks</button>
+      <button class="tab-btn" data-tab="sessions">Sesiones</button>
+      <button class="tab-btn" data-tab="clips">Clips</button>
+      <button class="tab-btn" data-tab="quick">Acciones</button>
+    </div>
+
+    <!-- Tab: Tolinks -->
+    <div id="tolinks-tab" class="tab-content active">
+      <div class="section">
+        <h2>🔗 Tolinks (Aliases)</h2>
+        <p class="hint">Escribe "go [alias]" en la barra de direcciones</p>
+
+        <div class="add-tolink">
+          <input type="text" id="newAlias" placeholder="alias" class="input-small">
+          <input type="text" id="newUrl" placeholder="https://ejemplo.com" class="input-large">
+          <button id="addTolink" class="btn-primary">+</button>
+        </div>
+
+        <div id="tolinksList" class="list"></div>
+      </div>
+    </div>
+
+    <!-- Tab: Sesiones -->
+    <div id="sessions-tab" class="tab-content">
+      <div class="section">
+        <h2>💾 Plantillas de Sesiones</h2>
+
+        <div class="add-session">
+          <input type="text" id="newSessionName" placeholder="Nombre de la sesión" class="input-large">
+          <button id="saveSession" class="btn-primary">Guardar Actual</button>
+        </div>
+
+        <div id="sessionsList" class="list"></div>
+      </div>
+    </div>
+
+    <!-- Tab: Clips -->
+    <div id="clips-tab" class="tab-content">
+      <div class="section">
+        <h2>📋 Clips Guardados</h2>
+        <p class="hint">Usa Cmd/Ctrl+Shift+C o selecciona texto y haz click en "Guardar Clip"</p>
+
+        <div id="clipsList" class="list"></div>
+      </div>
+    </div>
+
+    <!-- Tab: Acciones Rápidas -->
+    <div id="quick-tab" class="tab-content">
+      <div class="section">
+        <h2>⚡ Acciones Rápidas</h2>
+
+        <button id="groupNow" class="action-btn">
+          📁 Agrupar Tabs Ahora
+        </button>
+
+        <button id="pinSelected" class="action-btn">
+          📌 Pinear Tab Actual
+        </button>
+
+        <button id="applyPinRules" class="action-btn">
+          ⚡ Aplicar Reglas de Auto-Pin
+        </button>
+
+        <button id="saveQuickSession" class="action-btn">
+          💾 Guardar Sesión Rápida
+        </button>
+
+        <hr>
+
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">Tolinks:</span>
+            <span id="tolinksCount" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sesiones:</span>
+            <span id="sessionsCount" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Clips:</span>
+            <span id="clipsCount" class="stat-value">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="options.html" target="_blank">Configuración Avanzada</a>
+    </div>
+  </div>
+
+  <script src="../js/popup.js"></script>
+</body>
+</html>
